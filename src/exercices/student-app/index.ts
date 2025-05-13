@@ -3,18 +3,19 @@ import {
   commands,
   CommandValue,
   commandValues,
+  mentionValues,
 } from "exercices/student-app/enum";
 import {
-  askForStudent,
+  addMentionToStudent,
+  addNoteToStudent,
   extractCommandAndArgument,
   normalizeString,
   rl,
 } from "exercices/student-app/utils";
 
-rl.setPrompt("Bienvenue sur l'interface de gestion des étudiants.\n");
-rl.prompt();
-
-rl.setPrompt("Tapez '/help' pour afficher les commandes disponibles.\n");
+console.log("Bienvenue sur l'interface de gestion des étudiants.\n");
+console.log("Tapez '/help' pour afficher les commandes disponibles.");
+rl.setPrompt("> ");
 rl.prompt();
 
 rl.on("line", (line) => {
@@ -35,23 +36,28 @@ rl.on("line", (line) => {
         `- '/list' : Afficher la liste complète des étudiants\n` +
         `- '/find [nom]' : Rechercher des étudiants par nom\n` +
         `- '/getByNoteOver [note]' : Lister les étudiants ayant une note supérieure à la valeur indiquée\n` +
-        `- '/addNote' : Permet d'ajouter une note à un élève\n`
+        `- '/addNote' : Permet d'ajouter une note à un élève\n` +
+        `- '/addMention' : Permet d'ajouter une mention à un élève\n`
     );
+    rl.prompt();
     return;
   }
   const students = getStudents();
   if (!students) {
     console.log("Erreur : Aucun étudiant n'a été trouvé");
+    rl.prompt();
     return;
   }
   if (command === commandValues.LIST) {
     console.log("Liste complète des étudiants :");
     console.table(students);
+    rl.prompt();
     return;
   } else if (command === commandValues.FIND) {
     const validArg = argument && isNaN(Number(argument));
     if (!validArg) {
       console.log(`Erreur : "${argument}" n'est pas un nom valide`);
+      rl.prompt();
       return;
     }
     const studentsDetails = students.filter((student) =>
@@ -59,6 +65,7 @@ rl.on("line", (line) => {
     );
     if (!studentsDetails.length) {
       console.log(`Aucun étudiant trouvé pour le nom "${argument}"`);
+      rl.prompt();
       return;
     }
     console.log(`Résultats de recherche pour "${argument}" :`);
@@ -94,7 +101,15 @@ rl.on("line", (line) => {
       rl.prompt();
       return;
     }
-    askForStudent(students);
+    addNoteToStudent(students);
     return;
+  } else if (command === commandValues.ADD_MENTION) {
+    if (argument) {
+      console.log("Aucun argument nécessaire pour cette commande");
+      rl.prompt();
+      return;
+    }
+    addMentionToStudent(students);
+    rl.prompt();
   }
 });
