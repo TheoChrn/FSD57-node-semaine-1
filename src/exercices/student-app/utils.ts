@@ -1,6 +1,6 @@
 import { updateStudents } from "exercices/student-app/api";
 import { mentionValues } from "exercices/student-app/enum";
-import { Student } from "exercices/student-app/types";
+
 import readline from "readline";
 
 const getAverage = (notes: number[]) =>

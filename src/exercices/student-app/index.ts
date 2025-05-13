@@ -2,8 +2,7 @@ import { getStudents } from "exercices/student-app/api";
 import {
   commands,
   CommandValue,
-  commandValues,
-  mentionValues,
+  commandValues
 } from "exercices/student-app/enum";
 import {
   addMentionToStudent,

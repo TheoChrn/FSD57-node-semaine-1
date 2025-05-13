@@ -1,10 +1,8 @@
-import { Student } from "exercices/student-app/types";
 import fs from "node:fs";
 import path from "node:path";
 
 const getAverage = (notes: number[]) =>
   notes.reduce((acc, current) => acc + current) / notes.length;
-
 
 const filePath = path.join(__dirname, "...", "data", "student.txt");
 
