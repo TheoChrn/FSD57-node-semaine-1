@@ -88,7 +88,8 @@
       19,
       2
     ],
-    "address": "456 avenue des Lilas, Lyon"
+    "address": "456 avenue des Lilas, Lyon",
+    "mention": "assez bien"
   },
   {
     "name": "THOMAS MÜLLER",
@@ -97,9 +98,11 @@
       19,
       17,
       13,
-      20
+      20,
+      14
     ],
-    "address": "Am Kurfürstendamm 1, Berlin"
+    "address": "Am Kurfürstendamm 1, Berlin",
+    "mention": "tres bien"
   },
   {
     "name": "MARIA RODRIGUEZ",
