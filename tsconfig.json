@@ -26,6 +26,6 @@
     "esm": true,
     "files": true  
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "src/types.ts"],
   "exclude": ["node_modules"]
 }
