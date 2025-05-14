@@ -1,15 +1,15 @@
+import { rl } from "exercices/pierre-feuille-ciseaux";
 import { getStudents } from "exercices/student-app/api";
 import {
   commands,
   CommandValue,
-  commandValues
+  commandValues,
 } from "exercices/student-app/enum";
 import {
   addMentionToStudent,
   addNoteToStudent,
   extractCommandAndArgument,
   normalizeString,
-  rl,
 } from "exercices/student-app/utils";
 
 console.log("Bienvenue sur l'interface de gestion des étudiants.\n");

@@ -1,7 +1,6 @@
+import { rl } from "exercices/pierre-feuille-ciseaux";
 import { updateStudents } from "exercices/student-app/api";
 import { mentionValues } from "exercices/student-app/enum";
-
-import readline from "readline";
 
 const getAverage = (notes: number[]) =>
   notes.reduce((acc, current) => acc + current) / notes.length;
@@ -13,11 +12,6 @@ export const extractCommandAndArgument = (value: string) => {
 
   return { command, argument: argument || null };
 };
-
-export const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
 
 export const normalizeString = (str: string): string => {
   return str
