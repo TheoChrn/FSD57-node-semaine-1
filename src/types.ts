@@ -6,4 +6,10 @@ declare global {
     address: string;
     mention?: string;
   }
+
+  interface User {
+    email: string;
+    nom: string;
+    role: "admin" | "utilisateur" | "modérateur";
+  }
 }
