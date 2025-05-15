@@ -1,5 +1,5 @@
 import http from "node:http";
-
+import pug from "pug";
 import dotenv from "dotenv";
 import path from "node:path";
 import fs from "node:fs";
@@ -33,6 +33,19 @@ const server = http.createServer((req, res) => {
       "Content-type": "image/x-icon",
     });
     res.end();
+    return;
+  }
+
+  if (url === "/protected") {
+    const filePath = path.join(__dirname, "views", "protected.pug");
+
+    pug.renderFile(filePath, { user: { isAdmin: true } }, (err, data) => {
+      if (err) throw err;
+      res.writeHead(200, {
+        "Content-type": "text/html",
+      });
+      res.end(innerHTML(data));
+    });
     return;
   }
 
