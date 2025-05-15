@@ -1,0 +1,19 @@
+doctype html
+html(lang="fr")
+    head
+        meta(charset="UTF-8")
+        title Mon site PUG
+        link(rel="stylesheet" href="/styles/main.css")
+        block stylesheet
+
+    body
+        header
+            include menu
+
+        main
+            block content
+
+        include footer
+
+        if url === "/" 
+            script(src="/main.js")
