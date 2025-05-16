@@ -12,4 +12,10 @@ declare global {
     nom: string;
     role: "admin" | "utilisateur" | "modérateur";
   }
+
+  interface Contact {
+    name: string;
+    email: string;
+    content: string;
+  }
 }

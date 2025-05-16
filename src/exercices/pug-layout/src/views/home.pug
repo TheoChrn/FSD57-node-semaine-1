@@ -1,0 +1,15 @@
+extends layout
+
+block stylesheet
+    link(rel="stylesheet" href="/styles/home.css")
+
+block content
+    div
+        h1 Jean DUPONT
+        p Bienvenue sur mon portfolio
+        p Contactez-moi à l'adresse email suivante !
+        output#generate-email
+    
+    if success === "true"
+        div.toast
+            span Contact ajouté !
