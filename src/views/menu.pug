@@ -1,0 +1,8 @@
+- const menuItems = [{ path: '/', title: 'Home'}, { path: '/students', title: 'Students'}];
+
+mixin navItem(path, title, isActive)
+  li: a(href=path, data-active=isActive && "" class="link")= title
+
+nav: menu(class="flex-center menu p-3")
+  each val in menuItems
+    +navItem(val.path, val.title, val.path === url.split("?")[0])

@@ -1,0 +1,26 @@
+extends layout
+
+block stylesheet
+    link(rel="stylesheet" href="/styles/home.css")
+
+block content
+    div(class="flex flex-col gap-8")
+        h1(class="text-center") Liste des élèves
+        if students && students.length
+            div(class="space-y-4 mx-auto w-fit")
+                each student in students
+                    div(class="space-y-4")
+                        - const birthDate = new Date(student.birth).toLocaleDateString("fr-FR")
+                        h2(class="text-center") #{student.name} #{birthDate}
+                        div(class="flex items-center gap-2")
+                            a(href=`/student/${student.id}`, class="block btn btn-outline") Modifier 
+                            form(action=`/student/${student.id}`, method="POST")
+                                input(type="hidden" name="_method" value="DELETE")
+                                input(class="btn btn-destructive" type="submit" value="Supprimer") 
+        else 
+            div
+                span Aucun étudiant à afficher
+
+    if toastMessage
+        include toast
+

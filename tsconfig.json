@@ -26,6 +26,6 @@
     "esm": true,
     "files": true  
   },
-  "include": ["src/**/*.ts", "src/types.ts"],
+  "include": ["src/**/*.ts", "src/types.ts", "src/assets/scripts/toast.js"],
   "exclude": ["node_modules"]
 }

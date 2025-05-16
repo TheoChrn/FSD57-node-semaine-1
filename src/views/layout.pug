@@ -1,0 +1,17 @@
+doctype html
+html(lang="fr")
+    head
+        meta(charset="UTF-8")
+        title Mon site PUG
+        link(rel="stylesheet" href="/styles/main.css")
+        link(rel="stylesheet" href="/styles/reset.css")
+        block stylesheet
+
+    body(class="min-h-100svh flex flex-col space-y-16")
+        header
+            div(class="wrapper")
+                include menu
+
+        main(class="grow")
+            div(class="wrapper")
+                block content

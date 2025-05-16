@@ -1,0 +1,15 @@
+extends layout
+
+block stylesheet
+    link(rel="stylesheet" href="/styles/home.css")
+
+block content
+    form(action=`/student/${student.id}`, method="POST" class="flex")
+        input(type="hidden" name="_method" value="UPDATE")
+        input(type="hidden" name="id" value=student.id)
+        input(name="name" value=student.name placeholder="name" class="flex-1/2")
+        input(type="date" value=student.birth name="birth" placeholder="JJ/MM/AAAA" class="flex-1/2")
+        input(type="submit" value="Modifier") 
+
+    if toastMessage
+        include toast

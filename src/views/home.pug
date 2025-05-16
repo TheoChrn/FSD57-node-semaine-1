@@ -1,0 +1,11 @@
+extends layout
+
+block stylesheet
+    link(rel="stylesheet" href="/styles/home.css")
+
+block content
+
+    include form
+
+    if toastMessage
+        include toast
