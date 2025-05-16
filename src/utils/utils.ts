@@ -30,9 +30,12 @@ export const addNewStudent = (newStudent: Student) => {
   try {
     const students = getStudents();
 
-    if (!students) return;
+    if (!students) {
+      saveFile([{ ...newStudent, id: 1 }]);
+      return;
+    }
 
-    saveFile([...students, { ...newStudent, id: students.length + 1 }]);
+    saveFile([...students, { ...newStudent, id: students.length + 2 }]);
   } catch (err) {
     console.error(err);
   }

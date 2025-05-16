@@ -116,7 +116,6 @@ const server = http.createServer((req, res) => {
   }
 
   if (url?.startsWith("/student/")) {
-    console.log("url: " + url);
     const userId = Number(url.split("/")[2].split("?")[0]);
 
     if (!userId || isNaN(userId)) {
@@ -211,10 +210,18 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  if (url === "/not-found") {
+  }
+
   res.writeHead(404, {
     Location: "/not-found",
+    content: "text/html",
   });
-  res.end();
+  pug.renderFile(path.join(viewPath, "not-found.pug"), { url }, (err, data) => {
+    if (err) throw err;
+    res.end(data);
+  });
+
   return;
 });
 
